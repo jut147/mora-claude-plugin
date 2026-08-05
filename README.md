@@ -28,8 +28,21 @@ to plan a Product Hunt launch, draft a week of posts, or check what already work
 - **Three launch-workflow prompts**, most notably a full Product Hunt launch week that already knows
   Product Hunt's current rules (no vote solicitation, no "Coming Soon" pages — retired August 2025) so you
   don't have to.
-- **A setup skill** (`skills/mora-mcp-setup`) that walks you through first connection and explains what each
-  tool is for, triggered automatically when you ask Claude about connecting to or using Mora.
+- **Four skills** that package the tools above into actual workflows instead of leaving you to
+  chain tool calls yourself:
+  - `skills/mora-mcp-setup` — first connection, what each tool and prompt is for. Triggers when
+    you ask about connecting to or using Mora.
+  - `skills/content-performance-audit` — combines `list_posts` and `get_post_performance` into a
+    synthesized brief on what's actually working (platform, theme, timing) and what to do next.
+    Triggers on "how is my content performing", "audit my Mora posts", "what's working on my
+    social".
+  - `skills/brand-brief` — combines `get_brand_profile` and `list_products` into a portable,
+    factual brand + catalogue summary for work happening *outside* Mora — briefing a designer,
+    writing ad copy, prepping a pitch. Triggers on "give me my Mora brand brief", "what does my
+    brand sell", "summarize my Mora catalogue".
+  - `skills/content-gap-check` — combines `list_projects` and `list_posts` to compare what's
+    planned against what's actually gone out and surface overdue or orphaned content. Triggers
+    on "check my Mora content calendar for gaps", "am I behind on my content schedule".
 
 ## Why read-only, and why five tools
 
