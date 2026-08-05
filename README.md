@@ -20,9 +20,10 @@ to plan a Product Hunt launch, draft a week of posts, or check what already work
 
 - **Mora's official remote MCP server**, pre-configured — no manual `.mcp.json` editing, no API key to
   paste. First use triggers Mora's own OAuth 2.1 consent screen in your browser.
-- **Five read-only tools**: `list_posts`, `get_post_performance`, `get_brand_profile`, `list_products`,
-  `list_projects`. No tool can publish, schedule, connect an account, or spend money — Mora treats writes
-  through an unattended agent loop as unsafe to expose until per-scope consent exists in-app.
+- **Six read-only tools**: `list_posts`, `get_post_performance`, `get_brand_profile`, `list_products`,
+  `get_revenue_attribution`, `list_projects`. No tool can publish, schedule, connect an account, or spend
+  money — Mora treats writes through an unattended agent loop as unsafe to expose until per-scope consent
+  exists in-app.
 - **A brand-voice resource** (`mora://brand/voice`) you can attach once per session so every message Claude
   writes stays on-brand, without re-fetching it per message.
 - **Three launch-workflow prompts**, most notably a full Product Hunt launch week that already knows
@@ -44,17 +45,18 @@ to plan a Product Hunt launch, draft a week of posts, or check what already work
     planned against what's actually gone out and surface overdue or orphaned content. Triggers
     on "check my Mora content calendar for gaps", "am I behind on my content schedule".
 
-## Why read-only, and why five tools
+## Why read-only, and why so few tools
 
 Read-only is a considered position, not a placeholder. Every serious content-quality failure Mora has
 shipped and documented — a fabricated brand wordmark reaching a draft, unrequested posts silently added to
 an account — happened _with a human reviewing the loop_. Handing write access to a loop without one isn't
 something Mora can honestly call safe yet.
 
-Five tools is a measured ceiling, not an economy move: published research on tool-selection accuracy shows
-smaller models' tool-choice accuracy degrading past roughly 10–15 tools in a single context, and Mora's own
-design principle is that a longer tool list is not automatically better for an agent holding it. These five
-answer the five questions a marketing agent actually asks; nothing here overlaps.
+A small tool count is a measured ceiling, not an economy move: published research on tool-selection accuracy
+shows smaller models' tool-choice accuracy degrading past roughly 10–15 tools in a single context, and Mora's
+own design principle is that a longer tool list is not automatically better for an agent holding it. These
+six answer the questions a marketing agent actually asks — including, as of the sixth tool, "what real
+revenue does a channel actually deserve credit for" — and nothing here overlaps.
 
 ## Requirements
 
