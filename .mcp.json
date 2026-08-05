@@ -1,0 +1,6 @@
+{
+  "mora": {
+    "type": "http",
+    "url": "https://app.mora-marketer.com/api/mcp"
+  }
+}
