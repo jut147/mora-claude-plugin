@@ -18,15 +18,18 @@ to plan a Product Hunt launch, draft a week of posts, or check what already work
 
 ## What this plugin gives you
 
-- **Mora's official remote MCP server**, pre-configured — no manual `.mcp.json` editing, no API key to
-  paste. First use triggers Mora's own OAuth 2.1 consent screen in your browser.
-- **Six read-only tools**: `list_posts`, `get_post_performance`, `get_brand_profile`, `list_products`,
-  `get_revenue_attribution`, `list_projects`. No tool can publish, schedule, connect an account, or spend
+- **Mora's official remote MCP server connector**, pre-configured — no manual `.mcp.json` editing, no API key to
+  paste. First use triggers Mora's own OAuth 2.1 consent screen in your browser. The hosted MCP runtime and
+  account-scoped handlers live in Mora's product app; this public repository contains only connector configuration
+  and workflow skills.
+- **Nine read-only tools**: `list_posts`, `get_post_performance`, `get_brand_profile`, `list_products`,
+  `get_revenue_attribution`, `list_projects`, `list_audiences`, `list_content_angles`, and `list_brief_runs`. No tool can publish, schedule, connect an account, or spend
   money — Mora treats writes through an unattended agent loop as unsafe to expose until per-scope consent
   exists in-app.
 - **A brand-voice resource** (`mora://brand/voice`) you can attach once per session so every message Claude
   writes stays on-brand, without re-fetching it per message.
-- **Three launch-workflow prompts**, most notably a full Product Hunt launch week that already knows
+- **Three launch-workflow prompts** — `product_hunt_launch_week`, `first_maker_comment`, and
+  `write_like_what_worked` — most notably a full Product Hunt launch week that already knows
   Product Hunt's current rules (no vote solicitation, no "Coming Soon" pages — retired August 2025) so you
   don't have to.
 - **Four skills** that package the tools above into actual workflows instead of leaving you to
@@ -55,13 +58,29 @@ something Mora can honestly call safe yet.
 A small tool count is a measured ceiling, not an economy move: published research on tool-selection accuracy
 shows smaller models' tool-choice accuracy degrading past roughly 10–15 tools in a single context, and Mora's
 own design principle is that a longer tool list is not automatically better for an agent holding it. These
-six answer the questions a marketing agent actually asks — including, as of the sixth tool, "what real
-revenue does a channel actually deserve credit for" — and nothing here overlaps.
+nine answer the questions a marketing agent actually asks — including "what real revenue does a channel
+actually deserve credit for", "which audience is this for", and "which content angles or brief findings already
+exist" — and nothing here overlaps.
 
 ## Requirements
 
 - An existing or new Mora account (free to create at https://www.mora-marketer.com).
 - Claude Code with plugin support and remote MCP + OAuth support enabled.
+
+## Contract and runtime ownership
+
+The canonical remote MCP endpoint is `https://app.mora-marketer.com/api/mcp`. The live server card at
+`https://app.mora-marketer.com/.well-known/mcp/server-card.json` is the source of truth for the tool,
+resource, prompt, and read-only metadata. This public repository is the Claude Code connector and workflow
+package; it is not the private MCP runtime. Repository: https://github.com/jut147/mora-claude-plugin.
+
+Run the production contract check before publishing documentation changes:
+
+```bash
+node scripts/check-mora-mcp-contract.mjs
+```
+
+For an offline fixture, set `MORA_MCP_SERVER_CARD_FILE=/path/to/server-card.json`.
 
 ## Getting started
 
@@ -72,6 +91,9 @@ worked for my brand"_ — the bundled skill picks up from there and walks throug
 
 - Product: https://www.mora-marketer.com
 - MCP server documentation: https://app.mora-marketer.com/developers/mcp
+- Canonical server card: https://app.mora-marketer.com/.well-known/mcp/server-card.json
+- Agent authentication guide: https://www.mora-marketer.com/auth.md
+- Public repository role: this repository is the Claude Code connector; the hosted MCP endpoint is the runtime.
 - Issues with this plugin: open an issue on this repository.
 
 ## License

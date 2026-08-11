@@ -1,6 +1,6 @@
 {
   "name": "mora",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Connect Claude to Mora, an AI content OS for Shopify/DTC brands: read your brand voice, past posts, performance data and product catalogue, and run compliant Product Hunt launch workflows.",
   "author": {
     "name": "Mora",

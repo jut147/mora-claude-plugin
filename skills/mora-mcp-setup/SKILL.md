@@ -1,14 +1,15 @@
 ---
 name: mora-mcp-setup
 description: This skill should be used when the user wants to connect Claude Code to their Mora account, asks "how do I use the Mora plugin", asks what Mora's MCP server can do, or wants Claude to read their brand voice, past posts, performance data, or Shopify catalogue from Mora before writing content. Also use when the user wants to plan a Product Hunt launch grounded in their real brand and past performance.
-version: 0.1.0
+version: 0.2.0
 ---
 
 # Connecting Claude Code to Mora
 
 Mora (https://www.mora-marketer.com) is an AI content OS for Shopify/DTC brands: it plans, drafts,
-approves and schedules social content, and tracks what actually performed. This plugin bundles Mora's
-official remote MCP server so Claude can read a user's own Mora account — never anyone else's — before
+approves and schedules social content, and tracks what actually performed. This public plugin repository
+(https://github.com/jut147/mora-claude-plugin) bundles Mora's official remote MCP server connector so Claude
+can read a user's own Mora account — never anyone else's — before
 writing anything for them.
 
 This is a **read-only** connection. Nothing here publishes, schedules, or changes account settings. That
@@ -22,9 +23,9 @@ is a deliberate design position on Mora's side (see "What this can't do" below),
    to their existing Mora account (or create one) and approve a **read-only** consent screen at
    `app.mora-marketer.com/oauth/authorize`. Nothing needs to be pasted — no API key, no token.
 3. Once approved, Claude Code holds a scoped access token for this connection and refreshes it
-   automatically. If the user ever wants to revoke access, they do it from Mora directly (Settings →
-   Connected apps once that surface ships — until then, tell them to contact support@mora-marketer.com to
-   revoke).
+   automatically. The app can revoke a token family when refresh-token replay is detected. Mora does not
+   currently publish a client-callable OAuth `revocation_endpoint`; do not promise one. For a complete
+   account-level access reset, direct the user to Mora support at support@mora-marketer.com.
 4. If a user has no Mora account yet, say so plainly and point them to https://www.mora-marketer.com — do
    not attempt to sign them up through this flow.
 
@@ -35,7 +36,7 @@ Call `get_brand_profile` (or attach the `mora://brand/voice` resource) before wr
 Mora's own house rule, carried into this plugin because a model that skips this step writes fluent,
 confident, off-brand copy about a business it does not actually know.
 
-## Tools (read-only, six total)
+## Tools (read-only, nine total)
 
 | Tool                       | Use it to                                                                                                                                                                          |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -45,6 +46,9 @@ confident, off-brand copy about a business it does not actually know.
 | `list_products`            | Name a real product from this account's Shopify catalogue instead of inventing one. An empty result means no catalogue is connected — do not name a specific product in that case. |
 | `get_revenue_attribution`  | See which channel real Shopify orders actually credit, first-touch (opened the journey) and last-touch (closed the order) — Mora's own revenue truth, not engagement counts or GA traffic. An empty result means no attributed revenue on record — do not invent a channel or a number. |
 | `list_projects`            | See what content is already planned before proposing more.                                                                                                                         |
+| `list_audiences`           | See the account's defined audiences, desired outcomes, and exact pain language.                                                                                                    |
+| `list_content_angles`      | See the account's angle bank, ranked by reach, urgency, and durability.                                                                                                            |
+| `list_brief_runs`          | See brief-order runs and the research findings recorded in each step.                                                                                                             |
 
 There are deliberately no write tools — no publish, schedule, connect, or billing action is exposed.
 Handing an unattended agent loop write access to a real business's social presence is not something Mora
