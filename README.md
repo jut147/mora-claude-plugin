@@ -82,6 +82,29 @@ node scripts/check-mora-mcp-contract.mjs
 
 For an offline fixture, set `MORA_MCP_SERVER_CARD_FILE=/path/to/server-card.json`.
 
+Developer documentation:
+
+- [Architecture and data flow](docs/mcp-architecture.md)
+- [Machine-readable contract summary](docs/mcp-contract.json)
+- [Security policy](SECURITY.md)
+- [Contribution guide](CONTRIBUTING.md)
+- [Changelog and version policy](CHANGELOG.md)
+
+## Client compatibility
+
+The hosted endpoint uses Streamable HTTP over OAuth. The following is the supported documentation matrix;
+clients still negotiate capabilities at connection time:
+
+| Client | Connector/install docs | Tools | Resources/prompts |
+|---|---|---:|---|
+| Claude Code | This repository | Yes | Advertised; inspect negotiated capabilities |
+| Claude Desktop | Add the hosted HTTP endpoint manually | Yes, if remote MCP/OAuth is enabled | Client-dependent; inspect negotiated capabilities |
+| VS Code | Add the hosted HTTP endpoint through its MCP configuration | Client-dependent | Client-dependent; inspect negotiated capabilities |
+| Cursor | Add the hosted HTTP endpoint through its MCP configuration | Client-dependent | Client-dependent; inspect negotiated capabilities |
+
+This repository is an official Claude Code connector. The compatibility rows for other hosts describe the
+transport contract, not a claim that Mora controls their UI, OAuth storage, or primitive rendering.
+
 ## Getting started
 
 Ask Claude something like _"connect to my Mora account"_ or _"what should I post this week based on what's
