@@ -1,16 +1,19 @@
 # Mora for Claude Code
 
-Connect Claude Code to [Mora](https://www.mora-marketer.com), an AI content OS for Shopify and DTC brands,
-so Claude can see what your business actually is, what has actually worked, and what's actually in your
-catalogue before it writes anything for you.
+Connect Claude Code to [Mora](https://www.mora-marketer.com), a content platform for people who publish
+regularly and want new drafts grounded in what is real: what your brand actually is, what has actually
+worked, and (if you sell through Shopify) what is actually in your catalogue.
 
 ## What is Mora
 
-Mora is a **tiered** AI content engine — solo creators and Shopify/DTC operators today, multi-location
-franchises and governed enterprise templates as the product matures. It plans, drafts, gets human approval
-on, schedules and publishes social content, and closes the loop with real engagement and (for Shopify
-merchants) revenue attribution. The biggest thing Mora does that a generic content tool doesn't: it grounds
-every draft in a real Shopify catalogue and a real order history, not just a brand-voice guess.
+Mora serves solo creators and small teams building an audience or a brand, not only stores. That covers a
+Shopify or DTC operator who wants a product named correctly instead of invented, a coach or speaker building
+a personal brand on LinkedIn with no catalogue at all, and a full-time creator posting daily across three
+platforms. Mora also has a franchise tier for multi-location owners and an enterprise tier for organizations
+running governed brand templates. It plans, drafts, gets human approval, schedules and publishes content,
+and closes the loop with real engagement and, for connected Shopify stores, revenue attribution. What Mora
+does that a generic content tool doesn't: it grounds every draft in the account's own real data, not a
+brand-voice guess.
 
 **Who this plugin is for:** a Claude Code user who already has (or wants) a Mora account and wants to pull
 their own brand context, past performance, and product catalogue into a Claude Code session — for example,
@@ -103,6 +106,7 @@ most other MCP clients are still catching up to the new spec, since it's a recen
 | Claude Code                | Supported — this repository is its connector.                                                                                                                                                                                                                        |
 | Claude Desktop             | Expected to work (Anthropic's SDK ships CIMD); not yet independently verified.                                                                                                                                                                                       |
 | Codex CLI, Cursor, VS Code | Not yet — these clients' OAuth flow currently expects DCR, which this spec-forward server doesn't implement. Tracking upstream support; see [`docs/mcp-contract.json`](docs/mcp-contract.json)'s `clientCompatibility` field for verification dates and test detail. |
+| Windsurf                   | Not yet, for a different reason — Windsurf's remote MCP support is API-key only as of this writing, and this server has no API-key program at all, OAuth only.                                                                                                       |
 
 This is an authentication-protocol gap, not a missing feature on Mora's side — CIMD is where the ecosystem is
 heading, not a workaround. [`docs/mcp-architecture.md`](docs/mcp-architecture.md) has the full auth-flow

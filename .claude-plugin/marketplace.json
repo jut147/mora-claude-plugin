@@ -1,6 +1,6 @@
 {
   "name": "mora",
-  "description": "Mora's official Claude Code plugin marketplace: connects Claude to your Mora account (brand voice, past posts, performance, Shopify catalogue) via a read-only remote MCP server.",
+  "description": "Mora's official Claude Code plugin marketplace: read-only access to your Mora account's brand voice, past posts, performance, audiences, and (for connected Shopify stores) product catalogue and revenue.",
   "owner": {
     "name": "Mora",
     "url": "https://www.mora-marketer.com"
@@ -9,7 +9,7 @@
     {
       "name": "mora",
       "source": "./",
-      "description": "Connect Claude to Mora, an AI content OS for Shopify/DTC brands: read your brand voice, past posts, performance data and product catalogue, and run compliant Product Hunt launch workflows."
+      "description": "Connect Claude to Mora, a content platform for creators and small teams. Read your real brand voice, past posts, performance, audiences, and (for connected Shopify stores) product catalogue and revenue, before Claude writes anything."
     }
   ]
 }

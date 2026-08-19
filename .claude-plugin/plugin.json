@@ -1,7 +1,7 @@
 {
   "name": "mora",
-  "version": "0.4.0",
-  "description": "Connect Claude to Mora, an AI content OS for Shopify/DTC brands: read your brand voice, past posts, performance data and product catalogue, and run compliant Product Hunt launch workflows.",
+  "version": "0.5.0",
+  "description": "Connect Claude to Mora, a content platform for creators and small teams. Read your real brand voice, past posts, performance, audiences, and (for connected Shopify stores) product catalogue and revenue, before Claude writes anything.",
   "author": {
     "name": "Mora",
     "url": "https://www.mora-marketer.com"
@@ -11,12 +11,14 @@
   "license": "MIT",
   "keywords": [
     "mora",
-    "shopify",
+    "content",
     "social-media",
     "marketing",
-    "content",
+    "creator",
+    "personal-brand",
     "product-hunt",
     "mcp",
+    "shopify",
     "ecommerce"
   ]
 }

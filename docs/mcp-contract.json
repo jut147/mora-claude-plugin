@@ -49,6 +49,9 @@
         "codex-cli-0.147.0": "fails — `codex mcp login` errors immediately with \"Dynamic client registration not supported\"; live-tested against this endpoint"
       }
     },
-    "unverified": ["claude-desktop", "vscode", "cursor"]
+    "unverified": ["claude-desktop", "vscode", "cursor"],
+    "blockedByDesign": {
+      "windsurf": "Windsurf's remote MCP support is API-key only as of this writing; this server has no API-key program, OAuth only"
+    }
   }
 }
