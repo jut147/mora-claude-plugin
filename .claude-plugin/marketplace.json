@@ -1,6 +1,6 @@
 {
   "name": "mora",
-  "description": "Mora's official Claude Code plugin marketplace: read-only access to your Mora account's brand voice, past posts, performance, audiences, and (for connected Shopify stores) product catalogue and revenue.",
+  "description": "Claude guesses your brand voice. Mora gives it the real one, plus your real catalogue and performance.",
   "owner": {
     "name": "Mora",
     "url": "https://www.mora-marketer.com"
@@ -9,7 +9,7 @@
     {
       "name": "mora",
       "source": "./",
-      "description": "Connect Claude to Mora, a content platform for creators and small teams. Read your real brand voice, past posts, performance, audiences, and (for connected Shopify stores) product catalogue and revenue, before Claude writes anything."
+      "description": "Claude guesses your brand voice. Mora gives it the real one, plus your real catalogue and performance."
     }
   ]
 }

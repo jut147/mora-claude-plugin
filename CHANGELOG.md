@@ -2,6 +2,10 @@
 
 Repository: https://github.com/Mora-AI-Content-Studio/mora-claude-plugin
 
+## 0.5.1 — 2026-08-19
+
+- Cut every marketplace-facing description down to a single punchy line ("Claude guesses your brand voice. Mora gives it the real one, plus your real catalogue and performance.") — the prior 0.5.0 wording fixed the Shopify-only narrowing but was still a full paragraph, which reads badly next to other listings on aggregator sites like claudemarketplaces.com. Replaced the README's buried single example with three short, concrete example prompts.
+
 ## 0.5.0 — 2026-08-19
 
 - Fixed a real positioning bug, not just wording: every description (README, plugin.json, marketplace.json, the setup skill) called Mora "an AI content OS for Shopify/DTC brands," which excludes two of Mora's three co-primary consumer personas by weight. Mara (personal brand/thought leadership, LinkedIn, no catalogue) and Julien (full-time creator, IG/TikTok/YouTube, no catalogue) are 50% combined weight per `docs/planning/personas_Updated061326.md` and have no Shopify store at all. Shopify catalogue and revenue grounding is a real capability for stores that connect one, not the plugin's whole identity. Rewrote every description to lead with "creators and small teams" and treat Shopify grounding as additive.

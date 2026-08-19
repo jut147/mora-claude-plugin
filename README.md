@@ -1,8 +1,7 @@
 # Mora for Claude Code
 
-Connect Claude Code to [Mora](https://www.mora-marketer.com), a content platform for people who publish
-regularly and want new drafts grounded in what is real: what your brand actually is, what has actually
-worked, and (if you sell through Shopify) what is actually in your catalogue.
+Claude guesses your brand voice. [Mora](https://www.mora-marketer.com) gives it the real one, plus your real
+catalogue and performance.
 
 ## What is Mora
 
@@ -120,8 +119,12 @@ unverified/failing client is "not yet," not "add the URL and see." Machine-reada
 
 ## Getting started
 
-Ask Claude something like _"connect to my Mora account"_ or _"what should I post this week based on what's
-worked for my brand"_ — the bundled skill picks up from there and walks through the one-time OAuth consent.
+Ask Claude something like _"connect to my Mora account"_ and the bundled skill walks you through the
+one-time OAuth consent. Then try:
+
+- "What already worked before I draft this week's posts?"
+- "Plan my Product Hunt launch week, and follow Product Hunt's current rules."
+- "Name a real product from my catalogue instead of guessing one."
 
 ## Support
 

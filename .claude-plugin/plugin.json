@@ -1,7 +1,7 @@
 {
   "name": "mora",
-  "version": "0.5.0",
-  "description": "Connect Claude to Mora, a content platform for creators and small teams. Read your real brand voice, past posts, performance, audiences, and (for connected Shopify stores) product catalogue and revenue, before Claude writes anything.",
+  "version": "0.5.1",
+  "description": "Claude guesses your brand voice. Mora gives it the real one, plus your real catalogue and performance.",
   "author": {
     "name": "Mora",
     "url": "https://www.mora-marketer.com"
