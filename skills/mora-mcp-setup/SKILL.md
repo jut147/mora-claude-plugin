@@ -1,7 +1,7 @@
 ---
 name: mora-mcp-setup
 description: This skill should be used when the user wants to connect Claude Code to their Mora account, asks "how do I use the Mora plugin", asks what Mora's MCP server can do, or wants Claude to read their brand voice, past posts, performance data, or Shopify catalogue from Mora before writing content. Also use when the user wants to plan a Product Hunt launch grounded in their real brand and past performance.
-version: 0.2.0
+version: 0.2.1
 ---
 
 # Connecting Claude Code to Mora
@@ -36,19 +36,20 @@ Call `get_brand_profile` (or attach the `mora://brand/voice` resource) before wr
 Mora's own house rule, carried into this plugin because a model that skips this step writes fluent,
 confident, off-brand copy about a business it does not actually know.
 
-## Tools (read-only, nine total)
+## Tools (read-only, ten total)
 
-| Tool                       | Use it to                                                                                                                                                                          |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `list_posts`               | See what this account has already drafted, scheduled or published, so you don't repeat it.                                                                                         |
-| `get_post_performance`     | See which past posts actually got engagement, so new copy is grounded in what worked rather than a guess.                                                                          |
-| `get_brand_profile`        | Learn what this business is, what it sells, who it sells to, and how it sounds. Call this first.                                                                                   |
-| `list_products`            | Name a real product from this account's Shopify catalogue instead of inventing one. An empty result means no catalogue is connected — do not name a specific product in that case. |
-| `get_revenue_attribution`  | See which channel real Shopify orders actually credit, first-touch (opened the journey) and last-touch (closed the order) — Mora's own revenue truth, not engagement counts or GA traffic. An empty result means no attributed revenue on record — do not invent a channel or a number. |
-| `list_projects`            | See what content is already planned before proposing more.                                                                                                                         |
-| `list_audiences`           | See the account's defined audiences, desired outcomes, and exact pain language.                                                                                                    |
-| `list_content_angles`      | See the account's angle bank, ranked by reach, urgency, and durability.                                                                                                            |
-| `list_brief_runs`          | See brief-order runs and the research findings recorded in each step.                                                                                                             |
+| Tool                      | Use it to                                                                                                                                                                                                                                                                               |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `list_posts`              | See what this account has already drafted, scheduled or published, so you don't repeat it.                                                                                                                                                                                              |
+| `get_post_performance`    | See which past posts actually got engagement, so new copy is grounded in what worked rather than a guess.                                                                                                                                                                               |
+| `get_brand_profile`       | Learn what this business is, what it sells, who it sells to, and how it sounds. Call this first.                                                                                                                                                                                        |
+| `get_brief_workspace`     | Read one Brief's bounded, redacted workspace snapshot — objective, research state, products, personas, concepts, delivery intents, evidence decision, blockers — never provider, media, campaign, destination, or workflow internals.                                                   |
+| `list_products`           | Name a real product from this account's Shopify catalogue instead of inventing one. An empty result means no catalogue is connected — do not name a specific product in that case.                                                                                                      |
+| `get_revenue_attribution` | See which channel real Shopify orders actually credit, first-touch (opened the journey) and last-touch (closed the order) — Mora's own revenue truth, not engagement counts or GA traffic. An empty result means no attributed revenue on record — do not invent a channel or a number. |
+| `list_projects`           | See what content is already planned before proposing more.                                                                                                                                                                                                                              |
+| `list_audiences`          | See the account's defined audiences, desired outcomes, and exact pain language.                                                                                                                                                                                                         |
+| `list_content_angles`     | See the account's angle bank, ranked by reach, urgency, and durability.                                                                                                                                                                                                                 |
+| `list_brief_runs`         | See brief-order runs and the research findings recorded in each step.                                                                                                                                                                                                                   |
 
 There are deliberately no write tools — no publish, schedule, connect, or billing action is exposed.
 Handing an unattended agent loop write access to a real business's social presence is not something Mora

@@ -22,8 +22,9 @@ to plan a Product Hunt launch, draft a week of posts, or check what already work
   paste. First use triggers Mora's own OAuth 2.1 consent screen in your browser. The hosted MCP runtime and
   account-scoped handlers live in Mora's product app; this public repository contains only connector configuration
   and workflow skills.
-- **Nine read-only tools**: `list_posts`, `get_post_performance`, `get_brand_profile`, `list_products`,
-  `get_revenue_attribution`, `list_projects`, `list_audiences`, `list_content_angles`, and `list_brief_runs`. No tool can publish, schedule, connect an account, or spend
+- **Ten read-only tools**: `list_posts`, `get_post_performance`, `get_brand_profile`, `get_brief_workspace`,
+  `list_products`, `get_revenue_attribution`, `list_projects`, `list_audiences`, `list_content_angles`, and
+  `list_brief_runs`. No tool can publish, schedule, connect an account, or spend
   money — Mora treats writes through an unattended agent loop as unsafe to expose until per-scope consent
   exists in-app.
 - **A brand-voice resource** (`mora://brand/voice`) you can attach once per session so every message Claude
@@ -41,7 +42,7 @@ to plan a Product Hunt launch, draft a week of posts, or check what already work
     Triggers on "how is my content performing", "audit my Mora posts", "what's working on my
     social".
   - `skills/brand-brief` — combines `get_brand_profile` and `list_products` into a portable,
-    factual brand + catalogue summary for work happening *outside* Mora — briefing a designer,
+    factual brand + catalogue summary for work happening _outside_ Mora — briefing a designer,
     writing ad copy, prepping a pitch. Triggers on "give me my Mora brand brief", "what does my
     brand sell", "summarize my Mora catalogue".
   - `skills/content-gap-check` — combines `list_projects` and `list_posts` to compare what's
@@ -90,20 +91,30 @@ Developer documentation:
 - [Contribution guide](CONTRIBUTING.md)
 - [Changelog and version policy](CHANGELOG.md)
 
-## Client compatibility
+## Authentication and client compatibility
 
-The hosted endpoint uses Streamable HTTP over OAuth. The following is the supported documentation matrix;
-clients still negotiate capabilities at connection time:
+The hosted endpoint is Streamable HTTP, and every request needs an OAuth-issued bearer token. **The gate for
+any client is authentication, not tool/resource/prompt rendering:** this server identifies clients with
+**CIMD (Client ID Metadata Documents)** — a client's `client_id` is an `https://` URL Mora fetches and
+validates — and does not implement **Dynamic Client Registration (DCR)**; there is no `/register` endpoint.
+CIMD is what the MCP spec (2026-07-28) now recommends and is formally deprecating DCR in favor of, and it's
+what Claude's own SDKs and Claude Code ship — but as of this writing most non-Anthropic MCP clients still
+default to DCR. A client that only speaks DCR cannot complete authorization here at all, independent of
+whether it would otherwise render this server's tools correctly.
 
-| Client | Connector/install docs | Tools | Resources/prompts |
-|---|---|---:|---|
-| Claude Code | This repository | Yes | Advertised; inspect negotiated capabilities |
-| Claude Desktop | Add the hosted HTTP endpoint manually | Yes, if remote MCP/OAuth is enabled | Client-dependent; inspect negotiated capabilities |
-| VS Code | Add the hosted HTTP endpoint through its MCP configuration | Client-dependent | Client-dependent; inspect negotiated capabilities |
-| Cursor | Add the hosted HTTP endpoint through its MCP configuration | Client-dependent | Client-dependent; inspect negotiated capabilities |
+| Client            | Status (verified 2026-08-19) | Notes                                                                                                                                                                                                                                                                                                                        |
+| ----------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Claude Code       | **Works**                    | This repository is its connector.                                                                                                                                                                                                                                                                                            |
+| Claude Desktop    | Unverified                   | Ships Anthropic's CIMD-capable SDK; likely works, not live-tested.                                                                                                                                                                                                                                                           |
+| Codex CLI 0.147.0 | **Fails**                    | Live-tested against this endpoint: `codex mcp add` + auto-login errors immediately with `Registration failed: Dynamic client registration not supported` — it attempts DCR first and this server has no `/register` endpoint. `codex mcp add --oauth-client-id <url>` may work if pointed at a real CIMD document; untested. |
+| VS Code           | Unverified, likely fails     | No confirmed CIMD support as of this writing.                                                                                                                                                                                                                                                                                |
+| Cursor            | Unverified, likely fails     | Public reports as of January 2026 note Cursor's OAuth flow still leans on DCR; CIMD adoption there is not confirmed.                                                                                                                                                                                                         |
 
-This repository is an official Claude Code connector. The compatibility rows for other hosts describe the
-transport contract, not a claim that Mora controls their UI, OAuth storage, or primitive rendering.
+This isn't a rendering gap other clients will "just work around" — until a client ships CIMD support (or
+Mora separately stands up a DCR-compatible path, which is not currently planned), the honest answer for an
+unverified/failing client is "not yet," not "add the URL and see." Machine-readable form of this table:
+[`docs/mcp-contract.json`](docs/mcp-contract.json)'s `clientCompatibility` field. See
+[`docs/mcp-architecture.md`](docs/mcp-architecture.md) for the full request/auth flow diagram.
 
 ## Getting started
 

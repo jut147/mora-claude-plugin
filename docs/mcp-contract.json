@@ -1,5 +1,5 @@
 {
-  "contractVersion": "2026-08-11",
+  "contractVersion": "2026-08-19",
   "endpoint": "https://app.mora-marketer.com/api/mcp",
   "serverCard": "https://app.mora-marketer.com/.well-known/mcp/server-card.json",
   "authorization": {
@@ -15,6 +15,7 @@
     "list_posts",
     "get_post_performance",
     "get_brand_profile",
+    "get_brief_workspace",
     "list_products",
     "get_revenue_attribution",
     "list_projects",
@@ -39,5 +40,15 @@
     "discoverCorpus": false,
     "getStream": false,
     "sessionTeardown": false
+  },
+  "clientCompatibility": {
+    "_note": "Auth is the gate, not UI rendering. This server issues client_id as a CIMD (Client ID Metadata Document) URL and has no /register endpoint, so any client that still depends on Dynamic Client Registration cannot complete authorization here, independent of tool/resource/prompt support.",
+    "verified": {
+      "2026-08-19": {
+        "claude-code": "works (this repository is its connector)",
+        "codex-cli-0.147.0": "fails — `codex mcp login` errors immediately with \"Dynamic client registration not supported\"; live-tested against this endpoint"
+      }
+    },
+    "unverified": ["claude-desktop", "vscode", "cursor"]
   }
 }
