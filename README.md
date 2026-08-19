@@ -93,22 +93,20 @@ Developer documentation:
 
 ## Authentication and client compatibility
 
-The hosted endpoint is Streamable HTTP, and every request needs an OAuth-issued bearer token. **The gate for
-any client is authentication, not tool/resource/prompt rendering:** this server identifies clients with
-**CIMD (Client ID Metadata Documents)** — a client's `client_id` is an `https://` URL Mora fetches and
-validates — and does not implement **Dynamic Client Registration (DCR)**; there is no `/register` endpoint.
-CIMD is what the MCP spec (2026-07-28) now recommends and is formally deprecating DCR in favor of, and it's
-what Claude's own SDKs and Claude Code ship — but as of this writing most non-Anthropic MCP clients still
-default to DCR. A client that only speaks DCR cannot complete authorization here at all, independent of
-whether it would otherwise render this server's tools correctly.
+Every request needs an OAuth-issued bearer token. Mora's server identifies clients with **CIMD (Client ID
+Metadata Documents)** — the MCP spec's current recommended standard (2026-07-28), which formally deprecates
+the older **Dynamic Client Registration (DCR)** flow. Claude's own SDKs and Claude Code already ship CIMD;
+most other MCP clients are still catching up to the new spec, since it's a recent change.
 
-| Client            | Status (verified 2026-08-19) | Notes                                                                                                                                                                                                                                                                                                                        |
-| ----------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Claude Code       | **Works**                    | This repository is its connector.                                                                                                                                                                                                                                                                                            |
-| Claude Desktop    | Unverified                   | Ships Anthropic's CIMD-capable SDK; likely works, not live-tested.                                                                                                                                                                                                                                                           |
-| Codex CLI 0.147.0 | **Fails**                    | Live-tested against this endpoint: `codex mcp add` + auto-login errors immediately with `Registration failed: Dynamic client registration not supported` — it attempts DCR first and this server has no `/register` endpoint. `codex mcp add --oauth-client-id <url>` may work if pointed at a real CIMD document; untested. |
-| VS Code           | Unverified, likely fails     | No confirmed CIMD support as of this writing.                                                                                                                                                                                                                                                                                |
-| Cursor            | Unverified, likely fails     | Public reports as of January 2026 note Cursor's OAuth flow still leans on DCR; CIMD adoption there is not confirmed.                                                                                                                                                                                                         |
+| Client                     | Support                                                                                                                                                                                                                                                              |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Claude Code                | Supported — this repository is its connector.                                                                                                                                                                                                                        |
+| Claude Desktop             | Expected to work (Anthropic's SDK ships CIMD); not yet independently verified.                                                                                                                                                                                       |
+| Codex CLI, Cursor, VS Code | Not yet — these clients' OAuth flow currently expects DCR, which this spec-forward server doesn't implement. Tracking upstream support; see [`docs/mcp-contract.json`](docs/mcp-contract.json)'s `clientCompatibility` field for verification dates and test detail. |
+
+This is an authentication-protocol gap, not a missing feature on Mora's side — CIMD is where the ecosystem is
+heading, not a workaround. [`docs/mcp-architecture.md`](docs/mcp-architecture.md) has the full auth-flow
+diagram and the live test evidence behind the table above.
 
 This isn't a rendering gap other clients will "just work around" — until a client ships CIMD support (or
 Mora separately stands up a DCR-compatible path, which is not currently planned), the honest answer for an
