@@ -8,7 +8,7 @@ version: 0.2.0
 
 Mora (https://www.mora-marketer.com) is an AI content OS for Shopify/DTC brands: it plans, drafts,
 approves and schedules social content, and tracks what actually performed. This public plugin repository
-(https://github.com/jut147/mora-claude-plugin) bundles Mora's official remote MCP server connector so Claude
+(https://github.com/Mora-AI-Content-Studio/mora-claude-plugin) bundles Mora's official remote MCP server connector so Claude
 can read a user's own Mora account — never anyone else's — before
 writing anything for them.
 

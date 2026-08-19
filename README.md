@@ -72,7 +72,7 @@ exist" — and nothing here overlaps.
 The canonical remote MCP endpoint is `https://app.mora-marketer.com/api/mcp`. The live server card at
 `https://app.mora-marketer.com/.well-known/mcp/server-card.json` is the source of truth for the tool,
 resource, prompt, and read-only metadata. This public repository is the Claude Code connector and workflow
-package; it is not the private MCP runtime. Repository: https://github.com/jut147/mora-claude-plugin.
+package; it is not the private MCP runtime. Repository: https://github.com/Mora-AI-Content-Studio/mora-claude-plugin.
 
 Run the production contract check before publishing documentation changes:
 

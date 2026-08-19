@@ -1,6 +1,10 @@
 # Changelog
 
-Repository: https://github.com/jut147/mora-claude-plugin
+Repository: https://github.com/Mora-AI-Content-Studio/mora-claude-plugin
+
+## 0.3.1 — 2026-08-19
+
+- Repository moved from `jut147/mora-claude-plugin` to `Mora-AI-Content-Studio/mora-claude-plugin`. No functional change; GitHub redirects the old path automatically.
 
 ## 0.3.0 — 2026-08-11
 

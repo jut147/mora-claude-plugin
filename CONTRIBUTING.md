@@ -4,7 +4,7 @@ Contributions to this repository must stay within the public connector and workf
 private Mora runtime code, database queries, credentials, API keys, or claims that are not present in the
 live server card or public documentation.
 
-Repository: https://github.com/jut147/mora-claude-plugin
+Repository: https://github.com/Mora-AI-Content-Studio/mora-claude-plugin
 
 ## Documentation changes
 

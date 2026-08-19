@@ -7,7 +7,7 @@ The runtime is hosted by Mora at:
 https://app.mora-marketer.com/api/mcp
 ```
 
-Repository: https://github.com/jut147/mora-claude-plugin
+Repository: https://github.com/Mora-AI-Content-Studio/mora-claude-plugin
 
 ## What the connection does
 

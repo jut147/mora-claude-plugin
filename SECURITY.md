@@ -6,7 +6,7 @@ This repository contains public connector configuration and workflow documentati
 and OAuth implementation are private Mora application code. Do not submit secrets, private runtime code,
 database identifiers, or customer data here.
 
-Repository: https://github.com/jut147/mora-claude-plugin
+Repository: https://github.com/Mora-AI-Content-Studio/mora-claude-plugin
 
 ## Safe use
 
