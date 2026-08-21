@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.Mora-AI-Content-Studio/mora",
-  "title": "Mora",
-  "description": "Claude guesses your brand voice. Mora gives the real one: your catalogue and performance.",
-  "version": "1.0.1",
+  "title": "Mora AI",
+  "description": "Codex guesses your brand voice. Mora AI gives it the real one: your catalogue and performance.",
+  "version": "1.0.2",
   "websiteUrl": "https://www.mora-marketer.com",
   "repository": {
     "url": "https://github.com/Mora-AI-Content-Studio/mora-claude-plugin",

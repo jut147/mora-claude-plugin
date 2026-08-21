@@ -1,0 +1,47 @@
+{
+  "name": "mora",
+  "version": "0.6.0",
+  "description": "Codex guesses your brand voice. Mora AI gives it the real one, plus your real catalogue and performance.",
+  "author": {
+    "name": "Mora AI",
+    "email": "hello@mora-marketer.com",
+    "url": "https://www.mora-marketer.com"
+  },
+  "homepage": "https://www.mora-marketer.com/developers/mcp",
+  "repository": "https://github.com/Mora-AI-Content-Studio/mora-claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "mora-ai",
+    "brand-voice",
+    "content",
+    "social-media",
+    "marketing",
+    "paid-ads",
+    "mcp",
+    "shopify",
+    "ecommerce"
+  ],
+  "skills": "./skills/",
+  "mcpServers": {
+    "mora": {
+      "type": "http",
+      "url": "https://app.mora-marketer.com/api/mcp"
+    }
+  },
+  "interface": {
+    "displayName": "Mora AI",
+    "shortDescription": "Ground content in your real brand, catalogue, and performance.",
+    "longDescription": "Mora AI connects an agent to your account-scoped, read-only Mora MCP server so it can use your real brand voice, catalogue, audience, posts, and performance rather than guessing. The package includes grounded workflows for brand briefs, performance audits, content gaps, and paid-ad copy.",
+    "developerName": "Mora AI",
+    "category": "Marketing",
+    "capabilities": ["Read", "Analyze"],
+    "websiteURL": "https://www.mora-marketer.com",
+    "composerIcon": "./assets/mora-ai-icon.png",
+    "logo": "./assets/mora-ai-icon.png",
+    "defaultPrompt": [
+      "Ground this draft in my Mora AI brand voice and catalogue.",
+      "Audit what my Mora AI content has actually learned.",
+      "Write paid-ad copy from my real brand and performance data."
+    ]
+  }
+}

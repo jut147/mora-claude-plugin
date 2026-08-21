@@ -1,15 +1,15 @@
 {
   "name": "mora",
-  "description": "Claude guesses your brand voice. Mora gives it the real one, plus your real catalogue and performance.",
+  "description": "Codex guesses your brand voice. Mora AI gives it the real one, plus your real catalogue and performance.",
   "owner": {
-    "name": "Mora",
+    "name": "Mora AI",
     "url": "https://www.mora-marketer.com"
   },
   "plugins": [
     {
       "name": "mora",
       "source": "./",
-      "description": "Claude guesses your brand voice. Mora gives it the real one, plus your real catalogue and performance."
+      "description": "Codex guesses your brand voice. Mora AI gives it the real one, plus your real catalogue and performance."
     }
   ]
 }

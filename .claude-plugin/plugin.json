@@ -1,9 +1,9 @@
 {
   "name": "mora",
-  "version": "0.5.1",
-  "description": "Claude guesses your brand voice. Mora gives it the real one, plus your real catalogue and performance.",
+  "version": "0.6.0",
+  "description": "Codex guesses your brand voice. Mora AI gives it the real one, plus your real catalogue and performance.",
   "author": {
-    "name": "Mora",
+    "name": "Mora AI",
     "url": "https://www.mora-marketer.com"
   },
   "homepage": "https://www.mora-marketer.com",

@@ -1,9 +1,9 @@
-# Mora for Claude Code
+# Mora AI
 
-Claude guesses your brand voice. [Mora](https://www.mora-marketer.com) gives it the real one, plus your real
+Codex guesses your brand voice. [Mora AI](https://www.mora-marketer.com) gives it the real one, plus your real
 catalogue and performance.
 
-## What is Mora
+## What is Mora AI
 
 Mora serves solo creators and small teams building an audience or a brand, not only stores. That covers a
 Shopify or DTC operator who wants a product named correctly instead of invented, a coach or speaker building
@@ -14,13 +14,13 @@ and closes the loop with real engagement and, for connected Shopify stores, reve
 does that a generic content tool doesn't: it grounds every draft in the account's own real data, not a
 brand-voice guess.
 
-**Who this plugin is for:** a Claude Code user who already has (or wants) a Mora account and wants to pull
-their own brand context, past performance, and product catalogue into a Claude Code session — for example,
+**Who this plugin is for:** a user of a supported MCP host who already has (or wants) a Mora account and wants to pull
+their own brand context, past performance, and product catalogue into an agent session — for example,
 to plan a Product Hunt launch, draft a week of posts, or check what already worked before writing more.
 
 ## What this plugin gives you
 
-- **Mora's official remote MCP server connector**, pre-configured — no manual `.mcp.json` editing, no API key to
+- **Mora AI's official remote MCP server connector**, pre-configured — no manual `.mcp.json` editing, no API key to
   paste. First use triggers Mora's own OAuth 2.1 consent screen in your browser. The hosted MCP runtime and
   account-scoped handlers live in Mora's product app; this public repository contains only connector configuration
   and workflow skills.
@@ -35,7 +35,7 @@ to plan a Product Hunt launch, draft a week of posts, or check what already work
   `write_like_what_worked` — most notably a full Product Hunt launch week that already knows
   Product Hunt's current rules (no vote solicitation, no "Coming Soon" pages — retired August 2025) so you
   don't have to.
-- **Four skills** that package the tools above into actual workflows instead of leaving you to
+- **Six skills** that package the tools above into actual workflows instead of leaving you to
   chain tool calls yourself:
   - `skills/mora-mcp-setup` — first connection, what each tool and prompt is for. Triggers when
     you ask about connecting to or using Mora.
@@ -50,6 +50,10 @@ to plan a Product Hunt launch, draft a week of posts, or check what already work
   - `skills/content-gap-check` — combines `list_projects` and `list_posts` to compare what's
     planned against what's actually gone out and surface overdue or orphaned content. Triggers
     on "check my Mora content calendar for gaps", "am I behind on my content schedule".
+  - `skills/paid-ad-copy` — turns real brand, catalogue, audience, angle, and performance data
+    into paid-ad copy and a human-reviewable test matrix. It never creates campaigns or spends money.
+  - `skills/campaign-plan` — turns existing plans, posts, audiences, angles, catalogue facts, and
+    performance into a grounded campaign plan without scheduling or publishing anything.
 
 ## Why read-only, and why so few tools
 
@@ -119,12 +123,20 @@ unverified/failing client is "not yet," not "add the URL and see." Machine-reada
 
 ## Getting started
 
-Ask Claude something like _"connect to my Mora account"_ and the bundled skill walks you through the
+Ask the connected agent something like _"connect to my Mora account"_ and the bundled skill walks you through the
 one-time OAuth consent. Then try:
 
 - "What already worked before I draft this week's posts?"
 - "Plan my Product Hunt launch week, and follow Product Hunt's current rules."
 - "Name a real product from my catalogue instead of guessing one."
+
+## Package targets
+
+Claude Code has the documented turnkey installation path above. The same repository also includes
+`.codex-plugin/plugin.json` so Mora AI can be packaged and reviewed as a Codex plugin. That manifest
+does not change the hosted OAuth flow or upgrade any row in the client-compatibility matrix: the current
+contract records Codex CLI as not yet supported, Cursor and VS Code as unverified, and Windsurf as
+blocked by its API-key-only remote MCP path.
 
 ## Support
 
@@ -132,7 +144,7 @@ one-time OAuth consent. Then try:
 - MCP server documentation: https://app.mora-marketer.com/developers/mcp
 - Canonical server card: https://app.mora-marketer.com/.well-known/mcp/server-card.json
 - Agent authentication guide: https://www.mora-marketer.com/auth.md
-- Public repository role: this repository is the Claude Code connector; the hosted MCP endpoint is the runtime.
+- Public repository role: this repository is the connector and workflow package; the hosted MCP endpoint is the runtime.
 - Issues with this plugin: open an issue on this repository.
 
 ## License

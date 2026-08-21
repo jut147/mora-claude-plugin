@@ -1,16 +1,15 @@
 ---
 name: mora-mcp-setup
-description: This skill should be used when the user wants to connect Claude Code to their Mora account, asks "how do I use the Mora plugin", asks what Mora's MCP server can do, or wants Claude to read their brand voice, past posts, performance data, or Shopify catalogue from Mora before writing content. Also use when the user wants to plan a Product Hunt launch grounded in their real brand and past performance.
-version: 0.3.0
+description: This skill should be used when the user wants to connect an MCP client to their Mora AI account, asks "how do I use the Mora plugin", asks what Mora AI's MCP server can do, or wants an agent to read their brand voice, past posts, performance data, or Shopify catalogue from Mora before writing content. Also use when the user wants to plan a Product Hunt launch grounded in their real brand and past performance.
 ---
 
-# Connecting Claude Code to Mora
+# Connecting an MCP client to Mora AI
 
-Mora (https://www.mora-marketer.com) is a content platform for creators and small teams: it plans, drafts,
+Mora AI (https://www.mora-marketer.com) is a content platform for creators and small teams: it plans, drafts,
 approves and schedules social content, and tracks what actually performed. A connected Shopify store adds
 catalogue and revenue grounding on top of that, but Mora is not limited to stores. This public plugin
-repository (https://github.com/Mora-AI-Content-Studio/mora-claude-plugin) bundles Mora's official remote MCP
-server connector so Claude can read a user's own Mora account, never anyone else's, before writing anything
+repository (https://github.com/Mora-AI-Content-Studio/mora-claude-plugin) bundles Mora AI's official remote MCP
+server connector so an authorized agent can read a user's own Mora account, never anyone else's, before writing anything
 for them.
 
 This is a **read-only** connection. Nothing here publishes, schedules, or changes account settings. That
@@ -18,12 +17,12 @@ is a deliberate design position on Mora's side (see "What this can't do" below),
 
 ## First-time connection
 
-1. The plugin's `.mcp.json` already points Claude Code at `https://app.mora-marketer.com/api/mcp`. If the
-   server does not show as connected, run `/mcp` to see its status.
+1. The bundled MCP configuration points the client at `https://app.mora-marketer.com/api/mcp`. Confirm the
+   connection in that client's MCP settings or connection status UI.
 2. The first tool or resource call triggers Mora's OAuth flow in the user's default browser. They sign in
    to their existing Mora account (or create one) and approve a **read-only** consent screen at
    `app.mora-marketer.com/oauth/authorize`. Nothing needs to be pasted — no API key, no token.
-3. Once approved, Claude Code holds a scoped access token for this connection and refreshes it
+3. Once approved, the client holds a scoped access token for this connection and refreshes it
    automatically. The app can revoke a token family when refresh-token replay is detected. Mora does not
    currently publish a client-callable OAuth `revocation_endpoint`; do not promise one. For a complete
    account-level access reset, direct the user to Mora support at support@mora-marketer.com.
@@ -61,17 +60,15 @@ drafts) happened even with a human reviewing every step.
 
 Attach this once at the start of a working session and it stays in context for the whole conversation, so
 every message you write is on-brand without having to re-call a tool each time. It is prose, not JSON, on
-purpose — the point is that it reads like documentation a person would hand a new copywriter. It's usually
-reachable through Claude Code's "add context" / `@` picker under the `mora` server — the exact invocation
-string Claude Code assigns depends on how it namespaces plugin-bundled MCP servers, so if `@mora:...`
-doesn't resolve, check `/mcp` for the server's exact name and use whatever `@` form it shows there.
+purpose — the point is that it reads like documentation a person would hand a new copywriter. Resource
+attachment is host-specific, so inspect the client's MCP resource UI and use the server name it shows for
+Mora AI rather than assuming a particular picker or command syntax.
 
 ## Prompts (named workflows)
 
 These arrive already carrying the compliance rules Mora enforces in-app but that you would otherwise not
-know. They surface in Claude Code as slash commands namespaced by plugin and server — run `/mcp` (or start
-typing `/` and look for entries mentioning `mora`) to see the exact registered names on your Claude Code
-version, since the namespacing scheme can change between versions:
+know. A host may expose them as named MCP prompts, slash commands, or prompt-menu entries. Inspect that
+client's MCP prompt UI for the exact invocation syntax; namespacing is host-controlled:
 
 - **`product_hunt_launch_week`** — a full week of launch content (before / launch day / after), plus the
   first maker comment written in full.
@@ -95,9 +92,9 @@ first design law, carried into this plugin.
 
 ## Troubleshooting
 
-- **"No server found" / tools missing**: run `/mcp` to check connection status; the plugin's `.mcp.json`
-  should show `mora` as connected. If not, the OAuth flow may not have completed — try calling any Mora
-  tool again to re-trigger it.
+- **"No server found" / tools missing**: inspect the client's MCP connection status and confirm that the
+  configured endpoint is `https://app.mora-marketer.com/api/mcp`. If the connection is not authorized,
+  invoke a Mora tool again to re-trigger OAuth.
 - **Empty everything**: the signed-in account may be new, or the user may have multiple Mora accounts and
   authenticated the wrong one. Ask which account they meant.
 - **A tool call errors**: Mora's tools surface the underlying error message rather than a generic one — read

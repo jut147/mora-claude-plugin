@@ -1,6 +1,6 @@
-# Mora MCP architecture and contract
+# Mora AI MCP architecture and contract
 
-This repository is the public Claude Code connector and workflow package. It is not the Mora MCP runtime.
+This repository is Mora AI's public connector and workflow package. It is not the Mora MCP runtime.
 The runtime is hosted by Mora at:
 
 ```text
@@ -19,11 +19,11 @@ is also what the contract check below exists to prevent.
 ```mermaid
 flowchart LR
     subgraph "Mora-AI-Content-Studio (GitHub org)"
-        plugin["mora-claude-plugin\n(public — this repo)\nconnector config + Claude Code skills"]
+        plugin["mora-claude-plugin\n(public — this repo)\nconnector config + agent skills"]
         site["mora-marketer-site\n(private)\nmarketing site + public /developers/mcp docs"]
         app["Mora app\n(private)\nMCP runtime, OAuth server, tool handlers"]
     end
-    client["MCP client\n(Claude Code today)"] -->|installs| plugin
+    client["MCP host\n(Claude Code supported; see matrix)"] -->|installs| plugin
     plugin -->|points at| endpoint["app.mora-marketer.com/api/mcp"]
     endpoint --> app
     site -->|publishes human docs for| endpoint

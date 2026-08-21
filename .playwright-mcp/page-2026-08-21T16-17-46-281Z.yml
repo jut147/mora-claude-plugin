@@ -1,0 +1,93 @@
+- main [ref=f3e4]:
+  - complementary [ref=f3e5]:
+    - generic [ref=f3e11]:
+      - generic [ref=f3e12]:
+        - button "Default project" [ref=f3e14] [cursor=pointer]
+        - button "Collapse sidebar" [ref=f3e20] [cursor=pointer]
+      - button "Search" [ref=f3e24] [cursor=pointer]:
+        - generic [ref=f3e28]: ⌘K
+      - generic [ref=f3e30]:
+        - link "Home" [ref=f3e31] [cursor=pointer]:
+          - /url: /home
+        - link "Chat" [ref=f3e37] [cursor=pointer]:
+          - /url: /chat/edit
+        - link "Audio" [ref=f3e43] [cursor=pointer]:
+          - /url: /audio
+        - link "Images" [ref=f3e49] [cursor=pointer]:
+          - /url: /playground/images
+        - link "Codex" [ref=f3e55] [cursor=pointer]:
+          - /url: /codex
+        - link "API Keys" [ref=f3e63] [cursor=pointer]:
+          - /url: /api-keys
+        - link "Usage" [ref=f3e70] [cursor=pointer]:
+          - /url: /usage
+        - link "Logs" [ref=f3e76] [cursor=pointer]:
+          - /url: /logs
+        - link "Batches" [ref=f3e82] [cursor=pointer]:
+          - /url: /batches
+        - link "Storage" [ref=f3e89] [cursor=pointer]:
+          - /url: /storage
+        - link "Plugins" [ref=f3e95]:
+          - /url: /plugins
+        - link "Settings" [ref=f3e101] [cursor=pointer]:
+          - /url: /settings/proj_8LNOdMkrfFOKBfwEyib19Pk9
+        - button "More navigation items" [ref=f3e108] [cursor=pointer]:
+          - generic [ref=f3e109]: More
+      - button "R RespireappIO Organization" [ref=f3e116] [cursor=pointer]:
+        - generic [ref=f3e117]: R
+        - generic [ref=f3e118]:
+          - generic [ref=f3e119]: RespireappIO
+          - generic [ref=f3e120]: Organization
+  - generic [ref=f3e129]:
+    - generic [ref=f3e131]:
+      - heading [level=1] [ref=f3e132]:
+        - generic [ref=f3e133]:
+          - link "Plugins" [ref=f3e134] [cursor=pointer]:
+            - /url: /plugins
+          - link "Mora AI" [ref=f3e137] [cursor=pointer]:
+            - /url: /plugins
+      - generic [ref=f3e138]:
+        - generic [ref=f3e831]: Draft saved <1 minute ago
+        - button "Exit" [ref=f3e139] [cursor=pointer]
+    - generic [ref=f3e143]:
+      - generic [ref=f3e148]:
+        - button "Info" [ref=f3e149] [cursor=pointer]
+        - button "MCP" [ref=f3e155] [cursor=pointer]
+        - button "Skills" [ref=f3e161] [cursor=pointer]
+        - button "Prompts" [ref=f3e167] [cursor=pointer]
+        - button "Testing" [ref=f3e173] [cursor=pointer]
+        - button "Global" [active] [ref=f3e179] [cursor=pointer]
+        - button "Submit" [ref=f3e185] [cursor=pointer]
+      - group [ref=f3e190]:
+        - generic [ref=f3e1112]:
+          - heading "Translations" [level=2] [ref=f3e1113]
+          - generic [ref=f3e1114]:
+            - button "Select a locale" [ref=f3e1115] [cursor=pointer]
+            - button "Add translation" [disabled] [ref=f3e1120]
+          - generic [ref=f3e1122]:
+            - button [ref=f3e1123] [cursor=pointer]:
+              - heading "English (US)" [level=3] [ref=f3e1124]
+            - generic [ref=f3e1129]:
+              - generic [ref=f3e1130]:
+                - generic [ref=f3e1131]: Description
+                - textbox "Description" [disabled] [ref=f3e1133]: Mora AI helps marketers ground brand briefs, content plans, paid-ad drafts, and performance reviews in their own account's brand profile, catalogue, audiences, posts, and performance data.
+              - generic [ref=f3e1134]:
+                - generic [ref=f3e1135]: Subtitle
+                - textbox "Subtitle" [disabled] [ref=f3e1137]: Ground marketing content
+          - generic [ref=f3e1138]:
+            - heading "Allowed Countries" [level=2] [ref=f3e1139]
+            - generic [ref=f3e1140]:
+              - text: Choose the countries that your app will be available in. View a list of supported countries
+              - link "here" [ref=f3e1141] [cursor=pointer]:
+                - /url: https://help.openai.com/en/articles/7947663-chatgpt-supported-countries
+            - generic [ref=f3e1142]:
+              - generic [ref=f3e1143]: I would like to
+              - button "Allow all Clear current value" [ref=f3e1146] [cursor=pointer]:
+                - generic [ref=f3e1147]: Allow all
+                - button "Clear current value" [ref=f3e1149]
+              - generic [ref=f3e1155]:
+                - text: countries for
+                - strong [ref=f3e1156]: Mora AI
+      - generic [ref=f3e269]:
+        - button "Back" [ref=f3e270] [cursor=pointer]
+        - button "Continue" [ref=f3e756] [cursor=pointer]

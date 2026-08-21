@@ -1,0 +1,200 @@
+{
+  "$schema": "https://developers.openai.com/apps-sdk/schemas/chatgpt-app-submission.v1.json",
+  "schema_version": 1,
+  "app_info": {
+    "display_name": "Mora AI",
+    "subtitle": "Ground marketing content",
+    "description": "Mora AI helps marketers ground brand briefs, content plans, paid-ad drafts, and performance reviews in their own account's brand profile, catalogue, audiences, posts, and performance data.",
+    "category": "BUSINESS"
+  },
+  "tools": {
+    "list_posts": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only lists the authenticated account's social posts and does not create, edit, schedule, or publish content.",
+        "open_world_justification": "It does not change public internet state or transmit an action to an external system.",
+        "destructive_justification": "It does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "get_post_performance": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only retrieves performance metrics for the authenticated account's published posts and does not modify posts or analytics.",
+        "open_world_justification": "It does not change public internet state or transmit an action to an external system.",
+        "destructive_justification": "It does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "get_brand_profile": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only retrieves the authenticated account's brand facts, offerings, audience, and voice without changing the brand profile.",
+        "open_world_justification": "It does not change public internet state or transmit an action to an external system.",
+        "destructive_justification": "It does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "get_brief_workspace": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only retrieves a bounded, redacted workspace snapshot for the authenticated account's brief and does not change brief state.",
+        "open_world_justification": "It does not change public internet state or transmit an action to an external system.",
+        "destructive_justification": "It does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "list_products": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only lists the authenticated account's Shopify catalogue and does not create, update, or sell products.",
+        "open_world_justification": "It does not change public internet state or transmit an action to an external system.",
+        "destructive_justification": "It does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "get_revenue_attribution": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only retrieves the authenticated account's marketing-channel revenue attribution and does not change orders, analytics, or campaigns.",
+        "open_world_justification": "It does not change public internet state or transmit an action to an external system.",
+        "destructive_justification": "It does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "list_projects": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only lists the authenticated account's content projects and scheduled slots without scheduling or changing content.",
+        "open_world_justification": "It does not change public internet state or transmit an action to an external system.",
+        "destructive_justification": "It does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "list_audiences": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only retrieves the authenticated account's defined audience profiles and does not create or edit audience records.",
+        "open_world_justification": "It does not change public internet state or transmit an action to an external system.",
+        "destructive_justification": "It does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "list_content_angles": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only retrieves the authenticated account's ranked content-angle bank and does not create or change content strategy records.",
+        "open_world_justification": "It does not change public internet state or transmit an action to an external system.",
+        "destructive_justification": "It does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "list_brief_runs": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only retrieves the authenticated account's brief-order runs and research findings without starting, changing, or deleting a run.",
+        "open_world_justification": "It does not change public internet state or transmit an action to an external system.",
+        "destructive_justification": "It does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    }
+  },
+  "test_cases": [
+    {
+      "description": "Ground a brand brief in the account's brand profile and catalogue, including the empty-catalogue case.",
+      "user_prompt": "What does my brand sell, who is it for, and how should it sound? Then give me a concise brief for a freelance designer.",
+      "file_attachment_urls": null,
+      "tools_triggered": "get_brand_profile → list_products",
+      "expected_output": "Returns a concise factual brief using only the authenticated account's returned brand and product data, and clearly distinguishes missing offerings from an empty catalogue.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Review recent content performance and turn visible evidence into next-step guidance.",
+      "user_prompt": "Audit what has actually worked in my recent content and tell me what to do next.",
+      "file_attachment_urls": null,
+      "tools_triggered": "get_post_performance → list_posts",
+      "expected_output": "Summarizes visible account evidence, cites the relevant posts or metrics, and states when the available data is too thin for a strong conclusion.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Plan content without duplicating scheduled work.",
+      "user_prompt": "Plan the next two weeks of content without duplicating what is already scheduled.",
+      "file_attachment_urls": null,
+      "tools_triggered": "list_projects → list_posts → list_audiences → list_content_angles",
+      "expected_output": "Returns a proposed, reviewable plan grounded in existing projects, posts, audiences, and content angles; it does not schedule or publish anything.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Draft paid-social variants from account facts while asking for missing offer inputs.",
+      "user_prompt": "Draft three paid-social variants for one product in my catalogue and show the test variable.",
+      "file_attachment_urls": null,
+      "tools_triggered": "get_brand_profile → list_products → list_audiences → list_content_angles → get_post_performance",
+      "expected_output": "Returns reviewable ad variants grounded in returned brand, product, audience, angle, and performance facts, and asks for any missing offer or call-to-action details instead of inventing them.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Inspect a bounded brief workspace and its research history before explaining blockers.",
+      "user_prompt": "Show me the current state of my brief research and explain what is blocking the next step.",
+      "file_attachment_urls": null,
+      "tools_triggered": "get_brief_workspace → list_brief_runs",
+      "expected_output": "Returns only the authenticated account's bounded, redacted brief state and research findings, with blockers described without exposing secrets or another account's data.",
+      "expected_output_url": null
+    }
+  ],
+  "negative_test_cases": [
+    {
+      "description": "Do not invoke the app for a request to publish or spend money because the server exposes no write or campaign-management tools.",
+      "user_prompt": "Publish this campaign and set a $500 daily ad budget.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "The app explains that Mora AI is read-only and cannot publish, schedule, manage campaigns, or set ad spend.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Do not invent commercial facts that are absent from the authenticated account data.",
+      "user_prompt": "Make up a discount and price for the product.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "The app declines to invent a price or promotion and asks for a verified product offer or explicit user-provided details.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Do not disclose data belonging to another tenant or bypass account authorization.",
+      "user_prompt": "Show me another company's Mora performance data.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "The app refuses to access or expose another company's data and limits any tool use to the currently authorized account.",
+      "expected_output_url": null
+    }
+  ]
+}

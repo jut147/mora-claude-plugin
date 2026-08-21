@@ -1,7 +1,6 @@
 ---
 name: content-performance-audit
 description: This skill should be used when the user asks "how is my content performing", "audit my Mora posts", "what's working on my social", "what should I post more of", or wants a read on their Mora account's actual content performance before planning new posts. Combines Mora's `list_posts` and `get_post_performance` tools into a single synthesized brief grounded in the account's real history.
-version: 0.1.0
 ---
 
 # Content Performance Audit

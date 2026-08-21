@@ -1,7 +1,6 @@
 ---
 name: content-gap-check
 description: This skill should be used when the user asks "what's planned vs what's actually gone out", "check my Mora content calendar for gaps", "am I behind on my content schedule", "what's overdue in Mora", or wants to know whether their content plan is actually being executed. Combines Mora's `list_projects` and `list_posts` tools to compare planned slots against real post history and surface gaps.
-version: 0.1.0
 ---
 
 # Content Gap Check

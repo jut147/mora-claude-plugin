@@ -1,0 +1,336 @@
+- main [ref=f3e4]:
+  - complementary [ref=f3e5]:
+    - generic [ref=f3e11]:
+      - generic [ref=f3e12]:
+        - button "Default project" [ref=f3e14] [cursor=pointer]
+        - button "Collapse sidebar" [ref=f3e20] [cursor=pointer]
+      - button "Search" [ref=f3e24] [cursor=pointer]:
+        - generic [ref=f3e28]: ⌘K
+      - generic [ref=f3e30]:
+        - link "Home" [ref=f3e31] [cursor=pointer]:
+          - /url: /home
+        - link "Chat" [ref=f3e37] [cursor=pointer]:
+          - /url: /chat/edit
+        - link "Audio" [ref=f3e43] [cursor=pointer]:
+          - /url: /audio
+        - link "Images" [ref=f3e49] [cursor=pointer]:
+          - /url: /playground/images
+        - link "Codex" [ref=f3e55] [cursor=pointer]:
+          - /url: /codex
+        - link "API Keys" [ref=f3e63] [cursor=pointer]:
+          - /url: /api-keys
+        - link "Usage" [ref=f3e70] [cursor=pointer]:
+          - /url: /usage
+        - link "Logs" [ref=f3e76] [cursor=pointer]:
+          - /url: /logs
+        - link "Batches" [ref=f3e82] [cursor=pointer]:
+          - /url: /batches
+        - link "Storage" [ref=f3e89] [cursor=pointer]:
+          - /url: /storage
+        - link "Plugins" [ref=f3e95]:
+          - /url: /plugins
+        - link "Settings" [ref=f3e101] [cursor=pointer]:
+          - /url: /settings/proj_8LNOdMkrfFOKBfwEyib19Pk9
+        - button "More navigation items" [ref=f3e108] [cursor=pointer]:
+          - generic [ref=f3e109]: More
+      - button "R RespireappIO Organization" [ref=f3e116] [cursor=pointer]:
+        - generic [ref=f3e117]: R
+        - generic [ref=f3e118]:
+          - generic [ref=f3e119]: RespireappIO
+          - generic [ref=f3e120]: Organization
+  - generic [ref=f3e129]:
+    - generic [ref=f3e131]:
+      - heading [level=1] [ref=f3e132]:
+        - generic [ref=f3e133]:
+          - link "Plugins" [ref=f3e134] [cursor=pointer]:
+            - /url: /plugins
+          - link "Mora AI" [ref=f3e137] [cursor=pointer]:
+            - /url: /plugins
+      - generic [ref=f3e138]:
+        - generic [ref=f3e831]: Draft saved <1 minute ago
+        - button "Exit" [ref=f3e139] [cursor=pointer]
+    - generic [ref=f3e143]:
+      - generic [ref=f3e148]:
+        - button "Info" [ref=f3e149] [cursor=pointer]
+        - button "MCP" [ref=f3e155] [cursor=pointer]
+        - button "Skills" [ref=f3e161] [cursor=pointer]
+        - button "Prompts" [ref=f3e167] [cursor=pointer]
+        - button "Testing" [active] [ref=f3e173] [cursor=pointer]
+        - button "Global" [ref=f3e179] [cursor=pointer]
+        - button "Submit" [ref=f3e185] [cursor=pointer]
+      - group [ref=f3e190]:
+        - generic [ref=f3e835]:
+          - generic [ref=f3e836]:
+            - generic [ref=f3e837]:
+              - heading "Test credentials" [level=2] [ref=f3e838]
+              - generic [ref=f3e839]:
+                - text: Test credentials must work immediately with no additional setup required. No account creation or 2FA is permitted. Logging in must provide immediate access to a demo account.
+                - strong [ref=f3e840]: "Note: OpenAI may use test credentials to review your app and conduct ongoing safety and quality testing. Please provide a dedicated demo or test account with sample data only, and never a real user account with production data."
+            - 'textbox "Test credentials Test credentials must work immediately with no additional setup required. No account creation or 2FA is permitted. Logging in must provide immediate access to a demo account. Note: OpenAI may use test credentials to review your app and conduct ongoing safety and quality testing. Please provide a dedicated demo or test account with sample data only, and never a real user account with production data." [ref=f3e842]':
+              - /placeholder: "username: test_user\npassword: hunter2"
+          - generic [ref=f3e843]:
+            - heading "Test cases" [level=2] [ref=f3e844]
+            - generic [ref=f3e845]: Please provide exactly 5 test cases that we can use to test your MCP server's functionality. Ensure you have coverage over all the major use cases that you intend to support and include all information required to successfully run the test case.
+          - generic [ref=f3e846]:
+            - button [ref=f3e847] [cursor=pointer]:
+              - heading "Test Case 1" [level=3] [ref=f3e848]
+            - generic [ref=f3e855]:
+              - generic [ref=f3e856]:
+                - generic [ref=f3e857]:
+                  - generic [ref=f3e858]:
+                    - text: Scenario
+                    - generic [ref=f3e859]: Describe the use case to test (e.g., “Research flights”, “Create a slideshow”, “Find a hiking trail”).
+                  - textbox "Scenario Describe the use case to test (e.g., “Research flights”, “Create a slideshow”, “Find a hiking trail”)." [ref=f3e861]:
+                    - /placeholder: Enter description
+                    - text: Ground a brand brief in the account's brand profile and catalogue, including the empty-catalogue case.
+                - generic [ref=f3e862]:
+                  - generic [ref=f3e863]:
+                    - text: User prompt
+                    - generic [ref=f3e864]: The exact prompt or interaction we should conduct to begin the test.
+                  - textbox "User prompt The exact prompt or interaction we should conduct to begin the test." [ref=f3e866]:
+                    - /placeholder: Enter user prompt
+                    - text: What does my brand sell, who is it for, and how should it sound? Then give me a concise brief for a freelance designer.
+                - generic [ref=f3e867]:
+                  - generic [ref=f3e868]:
+                    - text: Tool triggered
+                    - generic [ref=f3e869]: Which tools should be called?
+                  - textbox "Tool triggered Which tools should be called?" [ref=f3e871]:
+                    - /placeholder: Enter tools triggered
+                    - text: get_brand_profile → list_products
+                - generic [ref=f3e872]:
+                  - generic [ref=f3e873]:
+                    - text: Expected output
+                    - generic [ref=f3e874]: The output or experience we should expect to receive back from the MCP server.
+                  - textbox "Expected output The output or experience we should expect to receive back from the MCP server." [ref=f3e876]:
+                    - /placeholder: Enter expected output
+                    - text: Returns a concise factual brief using only the authenticated account's returned brand and product data, and clearly distinguishes missing offerings from an empty catalogue.
+              - generic [ref=f3e877]:
+                - button "Remove Test Case 1" [ref=f3e878] [cursor=pointer]:
+                  - generic [ref=f3e879]: Remove test case
+                - button "Next" [ref=f3e880] [cursor=pointer]
+          - generic [ref=f3e882]:
+            - button [ref=f3e883] [cursor=pointer]:
+              - heading "Test Case 2" [level=3] [ref=f3e884]
+            - generic [ref=f3e891]:
+              - generic [ref=f3e892]:
+                - generic [ref=f3e893]:
+                  - generic [ref=f3e894]:
+                    - text: Scenario
+                    - generic [ref=f3e895]: Describe the use case to test (e.g., “Research flights”, “Create a slideshow”, “Find a hiking trail”).
+                  - textbox "Scenario Describe the use case to test (e.g., “Research flights”, “Create a slideshow”, “Find a hiking trail”)." [ref=f3e897]:
+                    - /placeholder: Enter description
+                    - text: Review recent content performance and turn visible evidence into next-step guidance.
+                - generic [ref=f3e898]:
+                  - generic [ref=f3e899]:
+                    - text: User prompt
+                    - generic [ref=f3e900]: The exact prompt or interaction we should conduct to begin the test.
+                  - textbox "User prompt The exact prompt or interaction we should conduct to begin the test." [ref=f3e902]:
+                    - /placeholder: Enter user prompt
+                    - text: Audit what has actually worked in my recent content and tell me what to do next.
+                - generic [ref=f3e903]:
+                  - generic [ref=f3e904]:
+                    - text: Tool triggered
+                    - generic [ref=f3e905]: Which tools should be called?
+                  - textbox "Tool triggered Which tools should be called?" [ref=f3e907]:
+                    - /placeholder: Enter tools triggered
+                    - text: get_post_performance → list_posts
+                - generic [ref=f3e908]:
+                  - generic [ref=f3e909]:
+                    - text: Expected output
+                    - generic [ref=f3e910]: The output or experience we should expect to receive back from the MCP server.
+                  - textbox "Expected output The output or experience we should expect to receive back from the MCP server." [ref=f3e912]:
+                    - /placeholder: Enter expected output
+                    - text: Summarizes visible account evidence, cites the relevant posts or metrics, and states when the available data is too thin for a strong conclusion.
+              - generic [ref=f3e913]:
+                - button "Remove Test Case 2" [ref=f3e914] [cursor=pointer]:
+                  - generic [ref=f3e915]: Remove test case
+                - button "Next" [ref=f3e916] [cursor=pointer]
+          - generic [ref=f3e918]:
+            - button [ref=f3e919] [cursor=pointer]:
+              - heading "Test Case 3" [level=3] [ref=f3e920]
+            - generic [ref=f3e927]:
+              - generic [ref=f3e928]:
+                - generic [ref=f3e929]:
+                  - generic [ref=f3e930]:
+                    - text: Scenario
+                    - generic [ref=f3e931]: Describe the use case to test (e.g., “Research flights”, “Create a slideshow”, “Find a hiking trail”).
+                  - textbox "Scenario Describe the use case to test (e.g., “Research flights”, “Create a slideshow”, “Find a hiking trail”)." [ref=f3e933]:
+                    - /placeholder: Enter description
+                    - text: Plan content without duplicating scheduled work.
+                - generic [ref=f3e934]:
+                  - generic [ref=f3e935]:
+                    - text: User prompt
+                    - generic [ref=f3e936]: The exact prompt or interaction we should conduct to begin the test.
+                  - textbox "User prompt The exact prompt or interaction we should conduct to begin the test." [ref=f3e938]:
+                    - /placeholder: Enter user prompt
+                    - text: Plan the next two weeks of content without duplicating what is already scheduled.
+                - generic [ref=f3e939]:
+                  - generic [ref=f3e940]:
+                    - text: Tool triggered
+                    - generic [ref=f3e941]: Which tools should be called?
+                  - textbox "Tool triggered Which tools should be called?" [ref=f3e943]:
+                    - /placeholder: Enter tools triggered
+                    - text: list_projects → list_posts → list_audiences → list_content_angles
+                - generic [ref=f3e944]:
+                  - generic [ref=f3e945]:
+                    - text: Expected output
+                    - generic [ref=f3e946]: The output or experience we should expect to receive back from the MCP server.
+                  - textbox "Expected output The output or experience we should expect to receive back from the MCP server." [ref=f3e948]:
+                    - /placeholder: Enter expected output
+                    - text: Returns a proposed, reviewable plan grounded in existing projects, posts, audiences, and content angles; it does not schedule or publish anything.
+              - generic [ref=f3e949]:
+                - button "Remove Test Case 3" [ref=f3e950] [cursor=pointer]:
+                  - generic [ref=f3e951]: Remove test case
+                - button "Next" [ref=f3e952] [cursor=pointer]
+          - generic [ref=f3e954]:
+            - button [ref=f3e955] [cursor=pointer]:
+              - heading "Test Case 4" [level=3] [ref=f3e956]
+            - generic [ref=f3e963]:
+              - generic [ref=f3e964]:
+                - generic [ref=f3e965]:
+                  - generic [ref=f3e966]:
+                    - text: Scenario
+                    - generic [ref=f3e967]: Describe the use case to test (e.g., “Research flights”, “Create a slideshow”, “Find a hiking trail”).
+                  - textbox "Scenario Describe the use case to test (e.g., “Research flights”, “Create a slideshow”, “Find a hiking trail”)." [ref=f3e969]:
+                    - /placeholder: Enter description
+                    - text: Draft paid-social variants from account facts while asking for missing offer inputs.
+                - generic [ref=f3e970]:
+                  - generic [ref=f3e971]:
+                    - text: User prompt
+                    - generic [ref=f3e972]: The exact prompt or interaction we should conduct to begin the test.
+                  - textbox "User prompt The exact prompt or interaction we should conduct to begin the test." [ref=f3e974]:
+                    - /placeholder: Enter user prompt
+                    - text: Draft three paid-social variants for one product in my catalogue and show the test variable.
+                - generic [ref=f3e975]:
+                  - generic [ref=f3e976]:
+                    - text: Tool triggered
+                    - generic [ref=f3e977]: Which tools should be called?
+                  - textbox "Tool triggered Which tools should be called?" [ref=f3e979]:
+                    - /placeholder: Enter tools triggered
+                    - text: get_brand_profile → list_products → list_audiences → list_content_angles → get_post_performance
+                - generic [ref=f3e980]:
+                  - generic [ref=f3e981]:
+                    - text: Expected output
+                    - generic [ref=f3e982]: The output or experience we should expect to receive back from the MCP server.
+                  - textbox "Expected output The output or experience we should expect to receive back from the MCP server." [ref=f3e984]:
+                    - /placeholder: Enter expected output
+                    - text: Returns reviewable ad variants grounded in returned brand, product, audience, angle, and performance facts, and asks for any missing offer or call-to-action details instead of inventing them.
+              - generic [ref=f3e985]:
+                - button "Remove Test Case 4" [ref=f3e986] [cursor=pointer]:
+                  - generic [ref=f3e987]: Remove test case
+                - button "Next" [ref=f3e988] [cursor=pointer]
+          - generic [ref=f3e990]:
+            - button [ref=f3e991] [cursor=pointer]:
+              - heading "Test Case 5" [level=3] [ref=f3e992]
+            - generic [ref=f3e999]:
+              - generic [ref=f3e1000]:
+                - generic [ref=f3e1001]:
+                  - generic [ref=f3e1002]:
+                    - text: Scenario
+                    - generic [ref=f3e1003]: Describe the use case to test (e.g., “Research flights”, “Create a slideshow”, “Find a hiking trail”).
+                  - textbox "Scenario Describe the use case to test (e.g., “Research flights”, “Create a slideshow”, “Find a hiking trail”)." [ref=f3e1005]:
+                    - /placeholder: Enter description
+                    - text: Inspect a bounded brief workspace and its research history before explaining blockers.
+                - generic [ref=f3e1006]:
+                  - generic [ref=f3e1007]:
+                    - text: User prompt
+                    - generic [ref=f3e1008]: The exact prompt or interaction we should conduct to begin the test.
+                  - textbox "User prompt The exact prompt or interaction we should conduct to begin the test." [ref=f3e1010]:
+                    - /placeholder: Enter user prompt
+                    - text: Show me the current state of my brief research and explain what is blocking the next step.
+                - generic [ref=f3e1011]:
+                  - generic [ref=f3e1012]:
+                    - text: Tool triggered
+                    - generic [ref=f3e1013]: Which tools should be called?
+                  - textbox "Tool triggered Which tools should be called?" [ref=f3e1015]:
+                    - /placeholder: Enter tools triggered
+                    - text: get_brief_workspace → list_brief_runs
+                - generic [ref=f3e1016]:
+                  - generic [ref=f3e1017]:
+                    - text: Expected output
+                    - generic [ref=f3e1018]: The output or experience we should expect to receive back from the MCP server.
+                  - textbox "Expected output The output or experience we should expect to receive back from the MCP server." [ref=f3e1020]:
+                    - /placeholder: Enter expected output
+                    - text: Returns only the authenticated account's bounded, redacted brief state and research findings, with blockers described without exposing secrets or another account's data.
+              - generic [ref=f3e1021]:
+                - button "Remove Test Case 5" [ref=f3e1022] [cursor=pointer]:
+                  - generic [ref=f3e1023]: Remove test case
+                - button "Next" [ref=f3e1024] [cursor=pointer]
+          - button "Add test case" [disabled] [ref=f3e1027]
+          - generic [ref=f3e1029]:
+            - heading "Negative test cases" [level=2] [ref=f3e1030]
+            - generic [ref=f3e1031]:
+              - text: Please include exactly 3
+              - emphasis [ref=f3e1032]: negative
+              - text: test cases. These should be example prompts where your app should not trigger, but the model may mistakenly think it’s relevant or something your app could do. This helps improve the accuracy of when your app is invoked.
+          - generic [ref=f3e1033]:
+            - button [ref=f3e1034] [cursor=pointer]:
+              - heading "Negative Test Case 1" [level=3] [ref=f3e1035]
+            - generic [ref=f3e1042]:
+              - generic [ref=f3e1043]:
+                - generic [ref=f3e1044]:
+                  - generic [ref=f3e1045]:
+                    - text: Scenario
+                    - generic [ref=f3e1046]: Describe the scenario where your app should not trigger.
+                  - textbox "Scenario Describe the scenario where your app should not trigger." [ref=f3e1048]:
+                    - /placeholder: Enter description
+                    - text: Do not invoke the app for a request to publish or spend money because the server exposes no write or campaign-management tools.
+                - generic [ref=f3e1049]:
+                  - generic [ref=f3e1050]:
+                    - text: User prompt
+                    - generic [ref=f3e1051]: Example prompt where your app should not trigger.
+                  - textbox "User prompt Example prompt where your app should not trigger." [ref=f3e1053]:
+                    - /placeholder: Enter user prompt
+                    - text: Publish this campaign and set a $500 daily ad budget.
+              - generic [ref=f3e1054]:
+                - button "Remove Negative Test Case 1" [ref=f3e1055] [cursor=pointer]:
+                  - generic [ref=f3e1056]: Remove test case
+                - button "Next" [ref=f3e1057] [cursor=pointer]
+          - generic [ref=f3e1059]:
+            - button [ref=f3e1060] [cursor=pointer]:
+              - heading "Negative Test Case 2" [level=3] [ref=f3e1061]
+            - generic [ref=f3e1068]:
+              - generic [ref=f3e1069]:
+                - generic [ref=f3e1070]:
+                  - generic [ref=f3e1071]:
+                    - text: Scenario
+                    - generic [ref=f3e1072]: Describe the scenario where your app should not trigger.
+                  - textbox "Scenario Describe the scenario where your app should not trigger." [ref=f3e1074]:
+                    - /placeholder: Enter description
+                    - text: Do not invent commercial facts that are absent from the authenticated account data.
+                - generic [ref=f3e1075]:
+                  - generic [ref=f3e1076]:
+                    - text: User prompt
+                    - generic [ref=f3e1077]: Example prompt where your app should not trigger.
+                  - textbox "User prompt Example prompt where your app should not trigger." [ref=f3e1079]:
+                    - /placeholder: Enter user prompt
+                    - text: Make up a discount and price for the product.
+              - generic [ref=f3e1080]:
+                - button "Remove Negative Test Case 2" [ref=f3e1081] [cursor=pointer]:
+                  - generic [ref=f3e1082]: Remove test case
+                - button "Next" [ref=f3e1083] [cursor=pointer]
+          - generic [ref=f3e1085]:
+            - button [ref=f3e1086] [cursor=pointer]:
+              - heading "Negative Test Case 3" [level=3] [ref=f3e1087]
+            - generic [ref=f3e1094]:
+              - generic [ref=f3e1095]:
+                - generic [ref=f3e1096]:
+                  - generic [ref=f3e1097]:
+                    - text: Scenario
+                    - generic [ref=f3e1098]: Describe the scenario where your app should not trigger.
+                  - textbox "Scenario Describe the scenario where your app should not trigger." [ref=f3e1100]:
+                    - /placeholder: Enter description
+                    - text: Do not disclose data belonging to another tenant or bypass account authorization.
+                - generic [ref=f3e1101]:
+                  - generic [ref=f3e1102]:
+                    - text: User prompt
+                    - generic [ref=f3e1103]: Example prompt where your app should not trigger.
+                  - textbox "User prompt Example prompt where your app should not trigger." [ref=f3e1105]:
+                    - /placeholder: Enter user prompt
+                    - text: Show me another company's Mora performance data.
+              - button "Remove Negative Test Case 3" [ref=f3e1107] [cursor=pointer]:
+                - generic [ref=f3e1108]: Remove test case
+          - button "Add negative test case" [disabled] [ref=f3e1110]
+      - generic [ref=f3e269]:
+        - button "Back" [ref=f3e270] [cursor=pointer]
+        - button "Continue" [ref=f3e756] [cursor=pointer]

@@ -1,7 +1,6 @@
 ---
 name: brand-brief
 description: This skill should be used when the user asks to "give me my Mora brand brief", "what does my brand sell", "summarize my Mora catalogue", "pull my brand info from Mora", or needs their real brand facts on hand for work happening outside Mora — briefing a designer, writing ad copy, prepping a pitch.
-version: 0.1.0
 ---
 
 # Brand Brief

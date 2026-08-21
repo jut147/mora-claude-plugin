@@ -2,6 +2,13 @@
 
 Repository: https://github.com/Mora-AI-Content-Studio/mora-claude-plugin
 
+## 0.6.0 — 2026-08-21
+
+- Renamed public-facing plugin copy to Mora AI while preserving the stable `mora` identifier and the organization repository URL.
+- Added the required `.codex-plugin/plugin.json` manifest for Codex and the shared plugin directory.
+- Added a grounded, read-only `paid-ad-copy` workflow based on the public ten-tool MCP contract.
+- Kept client compatibility claims aligned with `docs/mcp-contract.json`; the Codex CLI OAuth limitation remains documented.
+
 ## 0.5.1 — 2026-08-19
 
 - Cut every marketplace-facing description down to a single punchy line ("Claude guesses your brand voice. Mora gives it the real one, plus your real catalogue and performance.") — the prior 0.5.0 wording fixed the Shopify-only narrowing but was still a full paragraph, which reads badly next to other listings on aggregator sites like claudemarketplaces.com. Replaced the README's buried single example with three short, concrete example prompts.
