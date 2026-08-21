@@ -155,18 +155,18 @@
       "expected_output_url": null
     },
     {
-      "description": "Draft paid-social variants from account facts while asking for missing offer inputs.",
-      "user_prompt": "Draft three paid-social variants for one product in my catalogue and show the test variable.",
+      "description": "Draft paid-social variants from account facts and recent performance while asking for missing offer inputs. Requires a demo account with at least one product, audience, content angle, and recent published post; the reviewer supplies the platform, offer, and call to action.",
+      "user_prompt": "Draft three paid-social variants for one product in my catalogue, use my recent performance data to inform the angle, and show the test variable.",
       "file_attachment_urls": null,
       "tools_triggered": "get_brand_profile → list_products → list_audiences → list_content_angles → get_post_performance",
       "expected_output": "Returns reviewable ad variants grounded in returned brand, product, audience, angle, and performance facts, and asks for any missing offer or call-to-action details instead of inventing them.",
       "expected_output_url": null
     },
     {
-      "description": "Inspect a bounded brief workspace and its research history before explaining blockers.",
-      "user_prompt": "Show me the current state of my brief research and explain what is blocking the next step.",
+      "description": "Find the latest brief run, then inspect its bounded brief workspace and research history before explaining blockers. Requires a demo account with at least one brief run and its associated workspace.",
+      "user_prompt": "Find my latest brief run, show the current state of its brief workspace, and explain what is blocking the next step.",
       "file_attachment_urls": null,
-      "tools_triggered": "get_brief_workspace → list_brief_runs",
+      "tools_triggered": "list_brief_runs → get_brief_workspace",
       "expected_output": "Returns only the authenticated account's bounded, redacted brief state and research findings, with blockers described without exposing secrets or another account's data.",
       "expected_output_url": null
     }
@@ -181,11 +181,11 @@
       "expected_output_url": null
     },
     {
-      "description": "Do not invent commercial facts that are absent from the authenticated account data.",
-      "user_prompt": "Make up a discount and price for the product.",
+      "description": "Do not trigger a write action because Mora exposes no tool for changing live product or campaign data.",
+      "user_prompt": "Change the live price of this product to $49 and publish a 20% promotion.",
       "file_attachment_urls": null,
       "tools_triggered": null,
-      "expected_output": "The app declines to invent a price or promotion and asks for a verified product offer or explicit user-provided details.",
+      "expected_output": "The app explains that Mora AI has no public tool for changing prices, promotions, or campaigns and does not attempt the action.",
       "expected_output_url": null
     },
     {

@@ -8,17 +8,31 @@
 - Submission type: Standard universal MCP plugin
 - Production endpoint: `https://app.mora-marketer.com/api/mcp`
 
-## Required organization work
+## Current submission status and required owner actions
 
-The signed-in user can create a draft but cannot reopen or submit it because the RespireappIO
-organization has not granted `api.apps.read`; the organization settings page also denies
-`organization.read`. An organization admin must:
+The portal draft is complete through listing, MCP connection, domain verification, tool scan,
+skills, starter prompts, test cases, and release notes. Do **not** submit it yet. The remaining
+owner-controlled actions are:
 
-1. Grant the intended submitter `api.apps.read` and `api.apps.write`.
-2. Complete business identity verification for the legal entity publishing Mora AI.
-3. Select that verified business in the draft and use the exact verified legal business name for
-   Plugin Author. Do not submit Mora AI under an unrelated individual identity.
-4. Provide a reviewer-ready Mora demo account that has no MFA or email/SMS verification step.
+1. In OpenAI Platform, complete **business** identity verification for **Respired.io, Corp.** in
+   the organization that owns this draft. Then select that exact verified identity in the draft's
+   Developer Identity and Plugin Author fields. Do not submit under the already-verified
+   individual identity while the listing, website, support contact, terms, and privacy policy
+   identify the corporation.
+2. Deploy the public-site and MCP changes from this review. Then select **Scan Tools** again: the
+   local MCP source now advertises an output schema for all ten tools, but the prior portal scan
+   was against the deployed endpoint and reported the old result.
+3. Create a dedicated reviewer demo account and demo workspace with synthetic data. Give OpenAI a
+   regular login and password that work without MFA, email confirmation, SMS confirmation,
+   private-network access, a real customer integration, or an admin role. This is **not** an
+   authentication bypass: production authentication, OAuth, tenant scoping, and RLS remain in
+   force. The demo account is simply pre-provisioned, verified, and non-privileged.
+4. Record the demo using the companion plan, host it at a reviewer-reachable URL, and add that URL
+   to the draft. Treat an unlisted URL as review-accessible and keep it free of secrets or
+   personal data.
+5. Review the public legal copy with counsel, choose availability only for places where the
+   corporation, support process, and policies are ready, then complete the policy attestations
+   truthfully.
 
 ## Listing values
 
@@ -41,11 +55,16 @@ The directory icon is the current square black `mora.` wordmark from the marketi
 
 ## MCP scan and safety review
 
-After permissions are granted, open the MCP tab and scan
+After deployment, open the MCP tab and scan
 `https://app.mora-marketer.com/api/mcp`. Confirm every imported tool has the server-provided
-annotations `readOnlyHint: true` and `destructiveHint: false`. The justification for all ten
+annotations `readOnlyHint: true`, `openWorldHint: false`, and `destructiveHint: false`. The justification for all ten
 tools is the same: each retrieves account-scoped data only and cannot publish, schedule, change
 settings, manage a campaign, spend money, or affect a public system.
+
+The current source includes an advertised JSON Schema output contract and validated
+`structuredContent` for all ten tools. The focused MCP protocol suite passes 35 tests. A `401`
+from an unauthenticated probe is expected and correct; do not loosen endpoint authentication just
+to make `tools/list` public. Use the reviewer credentials in the portal's OAuth flow instead.
 
 The server uses OAuth 2.1 with PKCE and Client ID Metadata Documents (CIMD). It intentionally
 does not provide Dynamic Client Registration or API keys. Scan the endpoint from the portal
@@ -93,8 +112,8 @@ that depend on invented product names, prices, audiences, or metrics.
 
 ## Final pre-submit checks
 
-1. Upload a public demo recording that shows the main workflows using Developer Mode.
+1. Upload an unlisted, reviewer-reachable demo recording that shows the main workflows using Developer Mode.
 2. Complete country availability and all policy attestations truthfully.
 3. Verify the privacy policy covers the account data the tools return.
 4. Scan the production MCP endpoint, import the six skills, and run all eight test cases in the portal.
-5. Select Submit for review only after the business identity, demo credentials, recording, tool scan, and tests are complete.
+5. Select Submit for review only after the business identity, demo credentials, recording, deployment, re-scan, and tests are complete.

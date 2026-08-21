@@ -65,7 +65,7 @@ something Mora can honestly call safe yet.
 A small tool count is a measured ceiling, not an economy move: published research on tool-selection accuracy
 shows smaller models' tool-choice accuracy degrading past roughly 10–15 tools in a single context, and Mora's
 own design principle is that a longer tool list is not automatically better for an agent holding it. These
-nine answer the questions a marketing agent actually asks — including "what real revenue does a channel
+ten answer the questions a marketing agent actually asks — including "what real revenue does a channel
 actually deserve credit for", "which audience is this for", and "which content angles or brief findings already
 exist" — and nothing here overlaps.
 
