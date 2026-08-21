@@ -3,7 +3,7 @@
   "name": "io.github.Mora-AI-Content-Studio/mora",
   "title": "Mora AI",
   "description": "Codex guesses your brand voice. Mora AI gives it the real one: your catalogue and performance.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "websiteUrl": "https://www.mora-marketer.com",
   "repository": {
     "url": "https://github.com/Mora-AI-Content-Studio/mora-claude-plugin",
